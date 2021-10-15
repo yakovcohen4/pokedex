@@ -24,7 +24,7 @@ searchInput.addEventListener("keyup", (eve)=>{
 const searchBtn = document.getElementById("serch-btn");
 searchBtn.addEventListener("click", ()=> {
     pokemonName = searchInput.value;
-    searchPokemon(pokemonName)
+    searchPokemon2(pokemonName)
 });
 
 
@@ -65,6 +65,8 @@ function updatePokemonDom(){
     heightElem.textContent = PokemonObject.height;
     weightElem.textContent = PokemonObject.weight;
     imgElem.setAttribute("src", PokemonObject.frontImgSrc);
+    imgElem.setAttribute("width",175)
+    imgElem.setAttribute("height",174)
     createTypesList (PokemonObject.typeList);
     cleanNamesList();
 }
@@ -92,11 +94,9 @@ function cleanTypesList() {
 }
 //Update the names by the type in the type list section
 function listNameByType(event) {
-    console.log("yes");
     cleanNamesList();
     const typeListElem = document.getElementById("typeList");
     const type = typeListElem.value;
-    console.log(type);
     const listIndex = PokemonObject.typeList.indexOf(type);
     const namesUrl = PokemonObject.namesRelatedToTypesUrls[listIndex];
     getType(namesUrl);   
@@ -140,30 +140,60 @@ function updatePokemonObject(pokemonData) {
 /*---------- NETWORK ----------*/
 //Serch pokemon by ID or Name and update the PokemonObject with the data 
 
-let myLoader = new Image(250, 200);
+let myLoader = new Image(175, 125);
 myLoader.src = "https://media4.giphy.com/media/j2xgBIuAgmrpS/giphy.gif?cid=790b76112168eb7a616d286cbc812ea2bd9fbf4592129b30&rid=giphy.gif&ct=g";
 const divLoader = document.getElementById("loader");
 
+// function axios 
 async function searchPokemon(pokemonName) {
     try {
         divLoader.appendChild(myLoader);        //Add loader
+
         //Sent GET request
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
-        // const data = response;
         const pokemonAns = response.data;
+        setTimeout(()=>{
+
+            updatePokemonObject(pokemonAns);    //Update PokemonObject
+            updatePokemonDom();                 //Update DOM
+
+            searchInput.value = "";
+            divLoader.removeChild(myLoader);
+        }, 1500);
+        
+    } catch (error) {
+        divLoader.removeChild(myLoader);
+        alert ("Your Pokemon not found ,Please try again");
+        searchInput.value = "";
+    }
+}
+// function fetch 
+async function searchPokemon2(pokemonName) {
+    try {
+        divLoader.appendChild(myLoader);        //Add loader
+
+        //Sent GET request
+        const response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`,{
+            method:"GET",
+            headers: {  
+                Accept: "application/json",
+                "Content-Type": "application/json" 
+            }
+        })
+        const pokemonAns = await response.json();
         
         setTimeout(()=>{
             updatePokemonObject(pokemonAns);    //Update PokemonObject
             updatePokemonDom();                 //Update DOM
 
             searchInput.value = "";
-            
             divLoader.removeChild(myLoader);
         }, 1500);
         
     } catch (error) {
-       alert ("Can't your pokemon find, pleade try again");
-       searchInput.value = "";
+        divLoader.removeChild(myLoader);
+        alert ("Your Pokemon not found ,Please try again");
+        searchInput.value = "";
     }
 }
 //Get url and retuen an array of names thet also have the urls type
