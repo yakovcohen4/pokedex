@@ -22,20 +22,22 @@
     <title>POKEDEX</title>
 </head>
 <body>
-    <h1>POKEDEX</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"   
+        width="300" 
+        height="100">
     <div id="serach-div">
-        <label for="search">Search your favorite pokemon:</label> <br>
+        <label for="search">Search your favorite pokemon</label> <br>
         <input id="searchInput" type="text" placeholder="🔎search here..." name="search">
-        <button id = "serch-btn" >SEARCH!</button>
+        <button id = "serch-btn" > <img src="./img/search-alt-regular-24.png" alt=""></i></button>
     </div>
 
     <div id="loader"></div>
     
     <div id="answer-div">
         <ul>
-            <li>
-                <img id="pokemonImg" src="" class="img-thumbnail" alt="pokemon-picture"> 
-            </li>
+            <span>
+                <img id="pokemonImg" src="" > 
+            </span>
             <li>Name: 
                 <label id="name"></label>
             </li>
@@ -48,10 +50,10 @@
             <li>Types: <br>
                 <select id="typeList">
                     <option id="placeholderType">Select Type …</option><
-                </select><br>
+                </select>
                 
                 <select id="typeListNames">
-                    <option id="placeholderName">More Pokemon with this type</option>
+                    <option id="placeholderName">Show more Pokemon with this type</option>
                 </select>
             </li>
         </ul>
