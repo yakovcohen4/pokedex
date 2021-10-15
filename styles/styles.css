@@ -1,0 +1,21 @@
+*{
+    background-color:cadetblue;
+}
+body{
+    text-align: center;
+    justify-content: center;
+}
+#answer-div{
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+    text-align: left;
+}
+body > div {
+    font-size: 1.5em;
+    padding: 1.5em;
+}
+
+ul {
+    list-style-type: none;
+}
