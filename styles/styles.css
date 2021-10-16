@@ -47,7 +47,9 @@ ul {
 #serch-btn:hover {
     filter: drop-shadow(6px 6px 5px #2a2828);
 }
-
+#serach-div{
+    font-size: 2em;
+}
 #searchInput{
     border: 0.1em solid;
     border-radius: 1em;
