@@ -1,0 +1,138 @@
+*{
+    color:rgb(0, 0, 0);
+}
+
+body{
+    font-family:'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    text-align: center;
+    background-image: url("https://wallpaperaccess.com/full/5818333.jpg");
+    background-size:cover;
+}
+#user-name{
+    display: block;
+    font-size: 2em;
+}
+#searchUserName{
+    border: 0.1em solid;
+    border-radius: 0.5em;
+    text-align: center;
+    font-size: 0.5em;
+    font-style: italic;
+    transition: all .5s ease-in-out;
+    background-color: #b3ecf0;
+}
+#answer-div{
+    display: block;
+    width: 50%;
+    margin-right: 25%;
+    margin-left: 25%;
+    text-align: left;
+    background-color:rgba(177, 255, 255, 0.5);
+    border-style:solid;
+    border-width: 3px;
+    border-color: #08c5ff;
+}
+
+#answer-div ul > li {
+    font-size: 1.2em;
+    padding: 0.4em;
+}
+ul {
+    list-style-type: none;
+}
+/* pokemon image */
+#pokemonImg{
+    position:relative;
+    float:right;
+}
+#pokemonImg:hover{
+    box-shadow: 2px 2px 2px 2px #2a2828; 
+    border:lightgreen;
+    border-style:double;
+}
+
+
+/* search button */
+.searchInput-btn{
+    border: 0.1em solid;
+    border-radius: 1em;
+    font-style: italic;
+}
+.searchInput-btn:hover {
+    filter: drop-shadow(6px 6px 5px #2a2828);
+}
+#serach-div{
+    text-align: center;
+    margin: auto;
+    padding-top: 7px;
+    padding-bottom: 8px;
+    font-size: 1.3em;
+}
+#search-div > label{
+    margin-top: 1px;
+}
+.searchInput{
+    border: 0.1em solid;
+    border-radius: 1em;
+    text-align: center;
+    font-size: 0.5em;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    transition: all .5s ease-in-out;
+    background-color: #eccdb3;
+}
+
+#collection-btn{
+    border: 0.1em solid;
+    border-radius: 1em;
+    font-style: italic;
+    font-size: 0.5em;
+}
+#collection-btn:hover {
+    filter: drop-shadow(6px 6px 5px #2a2828);
+}
+
+.collection{
+    margin-right: 25%;
+    margin-left: 25%;
+    flex:auto;
+    background-color:rgba(177, 255, 255, 0.5);
+    border-style:solid;
+    border-width: 3px;
+    border-color: #08c5ff;
+}
+.poke-list{
+    margin-left: 0;
+    margin-top:1px ;
+    margin-right:1px ;
+    margin-bottom:1px ;
+    text-align: center;
+    list-style: none;
+    flex-direction: row;
+    display:flex;
+    height: auto;
+    width: auto;
+}
+.poke-list > li{
+    padding:2px;
+}
+.collection-item{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.close-btn{
+    background:lightskyblue;
+    border: 0.1em solid;
+    border-radius: 1em;
+    font-style: italic;
+    font-size: 0.4em;
+}
+.catch{
+    border: 0.1em solid;
+    border-radius: 1em;
+    font-style: italic;
+    font-size: 0.7em;
+}
+.catch:hover{
+    filter: drop-shadow(6px 6px 5px #2a2828);
+}

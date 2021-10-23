@@ -4,16 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/styles.css"></link>
-    <!-- Bootstarp Links -->
-    <link rel="stylesheet" 
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
-    crossorigin="anonymous">
-    <link rel="stylesheet" 
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
-    crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/index.css"></link>
+
 
     <!-- Axios Link -->
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
@@ -25,10 +17,48 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"   
         width="300" 
         height="100">
+
+    <div id="user-name">Enter user name
+        <input 
+            id ="searchUserName" 
+            type ="text" 
+            placeholder ="user name" required>
+        <label>
+            <button 
+                id ="collection-btn">
+                    click to collection
+            </button>
+        </label>
+        <label id="collection-continer"></label>
+    </div>
+
     <div id="serach-div">
-        <label for="search">Search your favorite pokemon</label> <br>
-        <input id="searchInput" type="text" placeholder="🔎search here..." name="search">
-        <button id = "serch-btn" > <img src="./img/search-alt-regular-24.png" alt=""></i></button>
+
+        <label>Search pokemon by name
+            <input 
+                id ="searchByName"
+                class ="searchInput" 
+                type ="text" 
+                placeholder ="🔎name...">
+            <button 
+                id ="searchByName-btn"
+                class="searchInput-btn"> 
+                    <img src="./img/search-alt-regular-24.png" alt="search" width="20px" height="w0px">
+            </button>
+        </label>
+        <br>
+        <label>Search pokemon by number (ID)
+            <input 
+                id="searchByNumber"
+                class="searchInput" 
+                type="text" 
+                placeholder="🔎number..." >
+            <button 
+                id = "searchByNumber-btn" 
+                class="searchInput-btn"> 
+                    <img src="./img/search-alt-regular-24.png" alt="search" width="20px" height="20px">
+            </button>
+        </label>
     </div>
 
     <div id="loader"></div>
@@ -48,22 +78,24 @@
                 <label id="weight"></label>
             </li>
             <li>Types: <br>
-                <select id="typeList">
-                    <option id="placeholderType">Select Type …</option><
-                </select>
-                
-                <select id="typeListNames">
-                    <option id="placeholderName">Show more Pokemon with this type</option>
-                </select>
+                <div id="typeList">
+                </div>
+            </li>
+            <li>Abilitys: <br>
+                <div id="abilitiesList"></div>
+            </li>
+            <li><br>
+                <button 
+                    class = "catch"
+                    id="catch-bth"> catch
+                </button>
+                <button 
+                    class = "catch"
+                    id="release-bth"> release
+                </button>
             </li>
         </ul>
     </div>
-
-    <!-- Bootstarp Links -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.7/js/mdb.min.js"></script>
 
 </body>
 </html>
