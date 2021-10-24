@@ -42,31 +42,32 @@ ul {
 }
 /* pokemon image */
 #pokemonImg{
-    position:relative;
+    margin-right: 1em;
     float:right;
 }
 #pokemonImg:hover{
-    box-shadow: 2px 2px 2px 2px #2a2828; 
-    border:lightgreen;
-    border-style:double;
+    box-shadow: 2px 2px 2px 2px rgb(68, 68, 68); 
+    border-color: turquoise;
+    border-style:inset;
 }
-
 
 /* search button */
 .searchInput-btn{
     border: 0.1em solid;
     border-radius: 1em;
-    font-style: italic;
+    background-color:rgb(57, 238, 238);
 }
 .searchInput-btn:hover {
     filter: drop-shadow(6px 6px 5px #2a2828);
 }
+
 #serach-div{
-    text-align: center;
-    margin: auto;
+    margin-left:25% ;
+    margin-right:25% ;
+    text-align: left;
     padding-top: 7px;
     padding-bottom: 8px;
-    font-size: 1.3em;
+    font-size: 1.5em;
 }
 #search-div > label{
     margin-top: 1px;
@@ -79,7 +80,7 @@ ul {
     font-style: italic;
     letter-spacing: 0.05em;
     transition: all .5s ease-in-out;
-    background-color: #eccdb3;
+    background-color: #b3ecf0;
 }
 
 #collection-btn{
@@ -87,12 +88,17 @@ ul {
     border-radius: 1em;
     font-style: italic;
     font-size: 0.5em;
+    background-color:rgb(57, 238, 238);
 }
 #collection-btn:hover {
     filter: drop-shadow(6px 6px 5px #2a2828);
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease 0s;
 }
 
 .collection{
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
     margin-right: 25%;
     margin-left: 25%;
     flex:auto;
@@ -102,6 +108,7 @@ ul {
     border-color: #08c5ff;
 }
 .poke-list{
+    padding-left: 0.5em;
     margin-left: 0;
     margin-top:1px ;
     margin-right:1px ;
@@ -110,6 +117,7 @@ ul {
     list-style: none;
     flex-direction: row;
     display:flex;
+    justify-content: center;
     height: auto;
     width: auto;
 }
@@ -120,19 +128,130 @@ ul {
     display: flex;
     flex-direction: column-reverse;
 }
-.close-btn{
-    background:lightskyblue;
-    border: 0.1em solid;
-    border-radius: 1em;
-    font-style: italic;
-    font-size: 0.4em;
+.collection-item:hover{
+    background: rgba(1, 180, 180, 0.3);
 }
+
 .catch{
+    float: right;
+    background: lightblue;
     border: 0.1em solid;
     border-radius: 1em;
     font-style: italic;
-    font-size: 0.7em;
+    font-size: 0.9em;
+    margin-left: 20px;
+    transition: all 0.4s ease 0s;
 }
 .catch:hover{
+    background-color: steelblue;
     filter: drop-shadow(6px 6px 5px #2a2828);
+    letter-spacing: 1px;
+    transition: all 0.4s ease 0s;
+}
+#catch-bth{
+    background-color: tomato;
+}
+#release-bth{
+    background-color:greenyellow;
+}
+#release{
+    margin-right: 2em;
+    margin-bottom: 2em ;
+}
+
+
+
+/* close button */
+.close-btn {
+    margin-right: 1em;
+    float:right;
+    background:lightskyblue;
+    border: 0;
+    box-sizing: border-box;
+    color: transparent;
+    cursor: pointer;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.2em;
+    letter-spacing: 0.4px;
+    outline: none;
+    overflow: hidden;
+    text-transform: uppercase;
+    transform: translate(10%, 10%);
+    transition: all 0.2s ease-in;
+    width: 35px;
+    height: 35px;
+}
+.close-btn::before,
+.close-btn::after {
+    background-color: white;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transform-origin: center left;
+    transition: all 0.2s ease-in;
+    width: 141.4214px;
+    z-index: -1;
+}
+.close-btn::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+.close-btn::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+.close-btn:hover {
+    color: #8a234a;
+    letter-spacing: 1px;
+    transition: all 0.4s ease 0s;
+}
+.close-btn:hover::before,
+.close-btn:hover::after {
+    height: 50px;
+    transform: rotate(0deg);
+}
+
+
+#loader{
+    margin-top: 0.5em;
+    margin-bottom: 0.2em;
+    margin-right: 25%;
+    margin-left: 25%;
+
+}
+
+.errorMessage{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background: lightblue;
+    border: 0.1em solid;
+    border-radius: 1em;
+    font-style: italic;
+    font-size: 1em;
+    flex:auto;
+    margin-left:15%;
+    margin-right: 15%;
+}
+.close-loader-btn{
+    /* margin: 1em; */
+    margin-left: 0.8em;
+    margin-right: 0.8em;
+    text-transform: uppercase;
+	text-decoration: none;
+	background: #f7e78f;
+	border-radius: 5px;
+	display: inline-block;
+	border: none;
+	transition: all 0.4s ease 0s;
+}
+
+.close-loader-btn:hover{
+    background: #b0b658;
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
 }
