@@ -16,6 +16,7 @@ let userName;
 let pokemonName;
 let pokemonID;
 const abilitysElem = document.getElementById("abilitiesList");
+
 //**** event - enter ****//
 const searchUserNameInput = document.getElementById("searchUserName");
 searchUserNameInput.addEventListener("keyup", (eve)=>{
@@ -228,7 +229,7 @@ async function searchByName(pokemonName ,userName) {
 
     } catch (error) {
         divLoader.removeChild(myLoader);
-        alert ("Your Pokemon not found ,Please try again");
+        errormessage(error)
     }
 }
 
@@ -238,21 +239,19 @@ async function catchPokemon(pokemonID, userName) {
         divLoader.appendChild(myLoader);        //Add loader
 
         //Sent GET request
-        const response = await fetch (`http://localhost:8080/pokemon/catch/${pokemonID}`,{
-            method:"PUT",
-            body: JSON.stringify({"pokemon":PokemonObject}),
-            headers: {
+        const response = await axios.put(`http://localhost:8080/pokemon/catch/${pokemonID}`,
+            {"pokemon":PokemonObject},
+            {headers: {
                 "Content-Type": "application/json",
                 username: userName
             }
         })
-        const pokemonAns = await response.json();
- 
+        
         divLoader.removeChild(myLoader);
         
     } catch (error) {
         divLoader.removeChild(myLoader);
-        alert ("Your Pokemon not found ,Please try again");
+        errormessage(error)
     }
 }
 
@@ -273,7 +272,7 @@ async function releasePokemon(pokemonID ,userName) {
 
     } catch (error) {
         divLoader.removeChild(myLoader);
-        alert ("Your Pokemon not found ,Please try again");
+        errormessage(error)
     }
 }
 
@@ -295,7 +294,7 @@ async function searchCollcetion(userName) {
         
     } catch (error) {
         divLoader.removeChild(myLoader);
-        alert ("Your Pokemon not found ,Please try again");
+        errormessage(error)
     }
 }
 
@@ -308,7 +307,7 @@ function collectionToDom(collectionArray) {
     //close button
     const closeBtn = document.createElement("button");
     closeBtn.classList.add('close-btn')
-    closeBtn.textContent = "close❌";
+    closeBtn.textContent = "close";
     closeBtn.addEventListener("click", ()=> document.querySelector(".collection").remove());
     currectCollection.appendChild(closeBtn);
     //Create list
@@ -334,6 +333,8 @@ function makePokeCollection(collectionArray) {
             pokeName.textContent = poke.name;
             const pokePic = document.createElement("img");
             pokePic.setAttribute("src", poke.front_pic);
+            pokePic.setAttribute("height", 96);
+            pokePic.setAttribute("width", 96);
             pokeElem.appendChild(pokeName);
             pokeName.appendChild(pokePic);
             pokeList.appendChild(pokeElem);
@@ -341,14 +342,25 @@ function makePokeCollection(collectionArray) {
     return pokeList;
 }
 
-//Get url and retuen an array of names thet also have the urls type
-async function getType(url) {
-    const response = await axios.get(url);
-    const data = await response;
-    const namesByTypeArr = [];
-    for (let pokemon of data.data.pokemon) {
-        namesByTypeArr.push(pokemon.pokemon.name);
-    }
-    buildNameList(namesByTypeArr);
+//error 
+function errormessage(error) {
+
+    const errorMessage = document.createElement('div')
+    errorMessage.classList.add("errorMessage");
+    errorMessage.textContent = error.response.data.error;
+    divLoader.appendChild(errorMessage)
+    
+    const closeBtn = document.createElement("button");
+    closeBtn.classList.add('close-loader-btn')
+    closeBtn.textContent = "close";
+    closeBtn.addEventListener("click", ()=> {
+        document.querySelector(".errorMessage").remove()
+    });
+    errorMessage.appendChild(closeBtn);
+    
+    setTimeout(()=>{
+        divLoader.removeChild(errorMessage)
+    },4000)
+    
 }
 

@@ -225,7 +225,7 @@ ul {
 .errorMessage{
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    background: lightblue;
+    background: rgba(175, 218, 233, 0.5);
     border: 0.1em solid;
     border-radius: 1em;
     font-style: italic;
