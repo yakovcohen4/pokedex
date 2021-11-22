@@ -1,0 +1,65 @@
+body{
+    margin-left: 20%;
+    margin-right: 20%;
+    background-image: url("https://wallpaperaccess.com/full/5818333.jpg");
+    background-repeat: no-repeat;
+    background-size:100%;
+}
+
+/* Bordered form */
+form {
+    padding: 16px;
+    background-color: rgba(200, 235, 179, 0.5);
+    border: gold;
+    border-style:solid;
+    border-width: 4px;
+}
+  
+/* Full-width inputs */
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    box-sizing: border-box;
+}
+  
+/* Set a style for all buttons */
+.button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+  
+/* Add a hover effect for buttons */
+.button:hover {
+    opacity: 0.8;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {   
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+  
+/* Avatar image */
+img.avatar {
+    width: 40%;
+    border-radius: 20%;
+}
+  
+  
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }   
+}
